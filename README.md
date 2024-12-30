@@ -26,10 +26,51 @@
   ## Abstract 
   >Sequence models have demonstrated remarkable success in behavioral planning by leveraging previously collected demonstrations. However, solving multi-task missions remains a significant challenge, particularly when the planner must adapt to unseen constraints and tasks, such as discovering goals and unlocking doors. Such behavioral planning problems are challenging to solve due to: a) agents failing to adapt beyond the single task learned through their reward function, and b) inability to generalize to new environments, e.g., those with walls and locked doors, when trained only in planar environments. Consequently, state-of-the-art decision-making methods are limited to missions where the required tasks are well-represented in the training demonstrations and can be solved within a short (temporal) planning horizon. To address this, we propose \model: a stochastic and adaptive planner that leverages discrete-flow models for generative sequence modeling, enabling sample-efficient exploration and exploitation. This framework relies on an iterative denoising procedure to generate a sequence of goals and actions. This approach captures multi-modal action distributions and facilitates goal and task discovery, thereby generalizing to out-of-distribution tasks and environments, i.e., missions not part of the training data. We demonstrate the effectiveness of our method through multiple simulation environments. Notably, \model outperforms state-of-the-art methods by over $10\%$ on adaptive planning tasks, where the agent adapts to multi-task missions while leveraging demonstrations from single-goal-reaching tasks.
  </p>
----
 
-## Code
-Coming Soon!
+
+## Install
+
+We recommed installing using conda
+
+```
+git clone https://github.com/CL2-UWaterloo/GenPlan.git
+cd GenPlan
+env create -f env.yaml
+conda activate plan
+```
+Installing the MiniGrid Environment 
+
+```
+git clone https://github.com/Aku02/Minigrid.git
+cd Minigrid
+pip install -e .
+```
+
+See the MiniGrid repository for information on how to get
+
+## Usage
+
+Refer to the configuration files in the `config` directory. We provide example for 2 envs
+
+Activate conda environment and login to wandb (if you haven't already).
+
+```
+WANDB_MODE='online' python train_genplan.py
+```
+
+## Contact
+
+In case of any issues, please email: [akashuwtce@gmail.com](mailto:akashuwtce@gmail.com)
+
+## Acknowledgement
+
+We thank the authors for sharing the code!
+
+- [Decision Transformer](https://github.com/kzl/decision-transformer.git)
+- [LEAP](https://github.com/hychen-naza/LEAP)
+- [Discrete Flow Models](https://github.com/andrew-cr/discrete_flow_models.git)
+- [Diffusion Policy](https://github.com/real-stanford/diffusion_policy)
+
 
 
 ## Citation
